@@ -38,9 +38,9 @@
 							<ul>
 								<li><a href="#intro">Intro</a></li>
 								<li><a href="#work">Experience</a></li>
-								<li><a href="#about">About</a></li>
-								<li><a href="#contact">Contact</a></li>
+								<li><a href="#project">Projects</a></li>
 								<li><a href="research.html" target="_blank">Research</a></li>
+								<li><a href="#contact">Contact</a></li>
 								<!--<li><a href="#elements">Elements</a></li>-->
 							</ul>
 						</nav>
@@ -111,17 +111,23 @@
 							</article>
 
 
-						<!-- About -->
-							<article id="about">
-								<h2 class="major">About</h2>
-								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
-								<p>Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+						<!-- project -->
+
+							<article id="project">
+  								<h2 class="major">Projects</h2>
+  								<span class="image main"><img src="images/pic03.jpg" alt="" /></span>
+ 								 <p>Here you can list your projects. For example:</p>
+  								<ul>
+    								<li><strong>Valuation Dashboard:</strong> An Excel-based tool to value listed companies using DCF and relative methods.</li>
+    								<li><strong>NEPSE Screener:</strong> A Python script to scrape and filter stocks from the Nepal Stock Exchange website.</li>
+    								<li><strong>Investment Report Templates:</strong> Created reusable research templates for sector and equity analysis.</li>
+  								</ul>
 							</article>
 
 						<!-- Contact -->
 							<article id="contact">
 								<h2 class="major">Contact</h2>
-								<form method="post" action="#">
+								<form id="contact-form">
 									<div class="fields">
 										<div class="field half">
 											<label for="name">Name</label>
@@ -142,11 +148,11 @@
 									</ul>
 								</form>
 								<ul class="icons">
-									
-									<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
+									<li><a href="https://www.facebook.com/bik.akhilesh" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+									<li><a href="https://www.instagram.com/bikakhilesh/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+									<li><a href="https://gist.github.com/bikakhilesh" class="icon brands fa-github"><span class="label">GitHub Gist</span></a></li>
+									<li><a href="https://www.linkedin.com/in/akhilesh-bikram-sthapit-41194279/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									</ul>
 							</article>
 
 
@@ -208,10 +214,10 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 									</ol>
 									<h4>Icons</h4>
 									<ul class="icons">
-										<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-										<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-										<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-										<li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
+										<li><a href="https://www.facebook.com/bik.akhilesh" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+										<li><a href="https://www.instagram.com/bikakhilesh/" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="https://gist.github.com/bikakhilesh" class="icon brands fa-github"><span class="label">GitHub Gist</span></a></li>
+										<li><a href="https://www.linkedin.com/in/akhilesh-bikram-sthapit-41194279/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
 									</ul>
 
 									<h4>Actions</h4>
@@ -342,7 +348,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 
 								<section>
 									<h3 class="major">Form</h3>
-									<form method="post" action="#">
+									<form method="POST" action="https://formspree.io/f/mnqwxyyz">
 										<div class="fields">
 											<div class="field half">
 												<label for="demo-name">Name</label>
@@ -395,7 +401,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 					</div>
 
 				<!-- Footer -->
-					<footer id="footer">
+					
 
 					<footer id="footer">
 
@@ -418,6 +424,36 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    fetch('https://script.google.com/macros/s/AKfycbx8a9J-Ahs46aJPLrF5UozIj2mcXL7Oizdo4BdOWiIkyxMWWq74U8cKT9CfrBrReBbU/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+      })
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("Message sent successfully!");
+        document.getElementById('contact-form').reset();
+      } else {
+        alert("Error sending message.");
+      }
+    })
+    .catch(async (error) => {
+      const text = await error.text?.();
+      console.error('Error!', text || error.message);
+      alert("Something went wrong:\n" + (text || error.message));
+    });
+  });
+</script>
+
+
 
 	</body>
 </html>
