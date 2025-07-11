@@ -421,4 +421,32 @@ $(document).ready(function () {
 
 
 
+
+
+fetch('projects.json')
+  .then(response => response.json())
+  .then(projects => {
+    const grid = document.getElementById('project-grid');
+    projects.forEach(project => {
+      const card = document.createElement('a');
+      card.href = project.link;
+      card.target = '_blank';
+      card.className = 'project-card';
+      card.innerHTML = `
+        <img src="${project.image}" alt="${project.alt}" />
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+      `;
+      grid.appendChild(card);
+    });
+  })
+  .catch(error => console.error('Error loading projects:', error));
+
+
+
+
+
+
+
+
 })(jQuery);

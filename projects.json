@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Bulk Apply IPO",
+    "description": "This Python script automates the process of applying for IPOs (Initial Public Offerings) through the MeroShare portal for multiple accounts using data from an Excel file.",
+    "image": "images/Bulk-apply-ipo.png",
+    "link": "https://github.com/bikakhilesh/Bulk-Apply-public",
+    "alt": "Bulk-Apply-IPO"
+  }
+]
